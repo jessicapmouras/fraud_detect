@@ -52,7 +52,7 @@ Due to the anonymization process, the feature names, descriptions, and nature is
 To perform my analysis I used the following libaries:
 
 <p align="center">
-  <img width="600" height="500" src="images/keras_regression_logos.png">
+  <img width="400" height="300" src="images/keras_regression_logos.png">
 </p>
 
 
@@ -131,7 +131,7 @@ The methods addressed during this analysis are as follows:
 To undersample and create balanced classes within my dataset. I had to reduce my original data to double the amount of the minority class. As there were 492 fraud transactions, I shuffled the remainder of the data and selected 492 random non-fraud transactions. In total, the undersampled dataset size is now 984 transactions. The information lost from the original transaction is 99.7%. Not good at all. That is a signifcant amount of loss just to create an inital data population. I decided to not remove any of the features and continue with standardized data as described above.
 
 <p align="center">
-  <img width="360" height="200" src="images/undersample_sciz.png">
+  <img width="360" height="300" src="images/undersample_sciz.png">
 </p>
 
 Despite all of the information loss and troubling aspects of undersampling in this manner, I wanted to see what sort of results I would achieve with classification on this reduced data. Ultimately, I wanted to see if the evaluated models during undersampling serve either oversampled or original data in future analysis.
@@ -299,12 +299,12 @@ For this analysis, the Neural Network Autoencoder performed best for our busines
 I am an exceedingly visual learner. I wanted to show the point by point view of the reconstruction error for the PCA and NN autoencoding analysis. 
 
 <p align="center">
-  <img width="560" height="500" src="images/pca_anomaly_score.png">
+  <img width="660" height="500" src="images/pca_anomaly_score.png">
 </p>
 
 
 <p align="center">
-  <img width="560" height="500" src="images/nn_anomaly_score.png">
+  <img width="660" height="500" src="images/nn_anomaly_score.png">
 </p>
 
 Wow, we can literally see the small errors that the PCA method had under the threshold line. Alternatively, we can see that the NN did not have any False Negatives, but did have a few False Positives (normal transactions above the threshold of error).
