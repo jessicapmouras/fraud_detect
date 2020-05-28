@@ -52,7 +52,7 @@ Due to the anonymization process, the feature names, descriptions, and nature is
 To perform my analysis I used the following libaries:
 
 <p align="center">
-  <img width="600" height="1000" src="images/keras_regression_logos.png">
+  <img width="600" height="500" src="images/keras_regression_logos.png">
 </p>
 
 
@@ -131,7 +131,7 @@ The methods addressed during this analysis are as follows:
 To undersample and create balanced classes within my dataset. I had to reduce my original data to double the amount of the minority class. As there were 492 fraud transactions, I shuffled the remainder of the data and selected 492 random non-fraud transactions. In total, the undersampled dataset size is now 984 transactions. The information lost from the original transaction is 99.7%. Not good at all. That is a signifcant amount of loss just to create an inital data population. I decided to not remove any of the features and continue with standardized data as described above.
 
 <p align="center">
-  <img width="260" height="800" src="images/undersample_sciz.png">
+  <img width="560" height="600" src="images/undersample_sciz.png">
 </p>
 
 Despite all of the information loss and troubling aspects of undersampling in this manner, I wanted to see what sort of results I would achieve with classification on this reduced data. Ultimately, I wanted to see if the evaluated models during undersampling serve either oversampled or original data in future analysis.
@@ -148,7 +148,7 @@ As shown here by the ROC Curve below, the models' performance on cross validated
 
 
 <p align="center">
-  <img width="460" height="800" src="images/undersamp_full_viz.png">
+  <img width="460" height="600" src="images/undersamp_full_viz.png">
 </p>
 
 As I am looking to perform a binary classification, my most important metrics to evalute are:
@@ -174,15 +174,15 @@ Deploying the best performing classification models on the original dataset, the
 While the accuracy scores are quite high, upon further assessment it appears that the models are just predicting the majority class, but ultimately are failing to catch the fraud instances.
 
 <p align="center">
-  <img width="460" height="600" src="images/undersample_roc2.png">
+  <img width="360" height="500" src="images/undersample_roc2.png">
 </p>
 
 <p align="center">
-  <img width="460" height="600" src="images/undersample_logistic_pr.png">
+  <img width="360" height="500" src="images/undersample_logistic_pr.png">
 </p>
 
 <p align="center">
-  <img width="460" height="600" src="images/undersample_gradient_pr.png">
+  <img width="360" height="500" src="images/undersample_gradient_pr.png">
 </p>
 
 ### Oversampling (SMOTE)
@@ -239,7 +239,7 @@ This model has a strong advantage as the model is able to exploit sampling techn
 This model is relatively unchanged by most fine hyperparameter tuning as we are using it as a supervised classifer (we know which instances are fraud vs. normal because our original data is labeled). As such, tuning is best performed on the contamination score. The contamination score is the proportion of anomalies in the dataset, or as we know it as the original class proportions of the data. In practice, you want to have a contamination score higher generally than your actual % of the anomaly class. The reasoning is that you want to capture as much of your anomaly as possible. Recall your recall score! You want to recall as high as possible to ensure we indentify all of the true positives.
 
 <p align="center">
-  <img width="460" height="600" src="images/iso_for_cf.png">
+  <img width="560" height="600" src="images/iso_for_cf.png">
 </p>
 
 As we focus on the top left-hand corner at our True Positive rate and then at the top right-hand corner at our False Negative rate, these are the representation of our recall score. We want our True Positives to be as high as possible and our False Negatives as low as possible. Why again? False Negatives mean that you missed some instances of fraud. Not good!
@@ -260,13 +260,13 @@ We must note that when you compress data, you simply cannot capture all the info
 Yes, we can say that the algorithm "failed" to reconstruct the original item, meaning that it found it too unique and weird to compress and reconstruction without much error. Upon reconstruction, we can compare the original datapoints with the compressed and reconstructed datapoints. The difference between the original and the reconstructed is the error. The higher the "reconstruction error" or "anomaly score" the more likely the datapoint is an anomaly our outlier. The 30 features were compressed down into 27 features. If we compress too much, we lose nuances in the data and we begin to classify normal datapoints as anomalies. I plotted this on 2 dimensions such that we can see the classes visually. 
 
 <p align="center">
-  <img width="460" height="600" src="images/PCA-viz.png">
+  <img width="560" height="600" src="images/PCA-viz.png">
 </p>
 
 We must use domain knowledge or a fair amount of research to determine what the threshold is for a "high" reconstruction error. For this analysis, I chose a threshold of 0.022, meaning that any error above that, the original datapoint is classified into the anomaly class. As a result of this process, we resulted in a very high recall score with a lower False Negative rate than the Isolation Forest method.
 
 <p align="center">
-  <img width="460" height="600" src="images/pca_cf.png">
+  <img width="560" height="600" src="images/pca_cf.png">
 </p>
 To be specific, the method identified 99.9% of the fraudulent transactions, which resulted in exactly 3 False Positives out of 394 Fraud transactions. Still a bit upsetting that we have some rate of False Negatives. These fraudelent transactions could be large in dollar value or especially criminal. I would prefer the business case to be that we have some minimal amounts of False Positives, normal transactions flagged as fraud. This would require some investigation and internal resource time, but would provide more risk coverage for customer exposure.
 
@@ -279,13 +279,13 @@ Let's see if our final method beats this already pretty impressive performance.
 Neural Network Autoencoding works similarly to PCA Anomaly Detection. Neural Networks function a little differently, in the sense that they use non-linear compression methods such as ReLU. NN Autoencoders are typically built on 3 layers, the input layer of the full 30 dimensions, one singular hidden layer that reduces the dimensions, and then an output layer that mirrors the original dimensions.
 
 <p align="center">
-  <img width="460" height="600" src="images/nn-autoencoder-ref.png">
+  <img width="560" height="600" src="images/nn-autoencoder-ref.png">
 </p>
 
 The 30 features were compressed down into 27 features again. For this analysis, I chose a a different reconstruction error threshold than the PCA method, this time I chose 0.0105, meaning that any error above that, the original datapoint is classified into the anomaly class. As a result of this process, we resulted in extremely similar results as the PCA Anomaly Detection.
 
 <p align="center">
-  <img width="460" height="600" src="images/nn_cf.png">
+  <img width="560" height="600" src="images/nn_cf.png">
 </p>
 Comparing this method to how we assessed the PCA method, this NN method identified 99.9% of the fraudulent transactions, just like the PCA method. 
 
@@ -299,12 +299,12 @@ For this analysis, the Neural Network Autoencoder performed best for our busines
 I am an exceedingly visual learner. I wanted to show the point by point view of the reconstruction error for the PCA and NN autoencoding analysis. 
 
 <p align="center">
-  <img width="660" height="600" src="images/pca_anomaly_score.png">
+  <img width="560" height="600" src="images/pca_anomaly_score.png">
 </p>
 
 
 <p align="center">
-  <img width="660" height="600" src="images/nn_anomaly_score.png">
+  <img width="560" height="600" src="images/nn_anomaly_score.png">
 </p>
 
 Wow, we can literally see the small errors that the PCA method had under the threshold line. Alternatively, we can see that the NN did not have any False Negatives, but did have a few False Positives (normal transactions above the threshold of error).
