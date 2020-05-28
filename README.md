@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="1000" height="200" src="images/fraud-header.png">
+  <img width="700" height="300" src="images/fraud-header.png">
 </p>
 
 Jessica Mouras
