@@ -174,7 +174,7 @@ Deploying the best performing classification models on the original dataset, the
 While the accuracy scores are quite high, upon further assessment it appears that the models are just predicting the majority class, but ultimately are failing to catch the fraud instances.
 
 <p align="center">
-  <img width="460" height="400" src="images/undersample_roc2.png">
+  <img width="560" height="400" src="images/undersample_roc2.png">
 </p>
 
 <p align="center">
@@ -202,7 +202,7 @@ That is a lot of randoms!
 Why does this work? Well, "new synthetic" instances from the minority class that are generated through this process  are generally speaking close in feature space to existing examples from the minority class.
 
 <p align="center">
-  <img width="460" height="600" src="images/SMOTE_viz.png">
+  <img width="460" height="400" src="images/SMOTE_viz.png">
 </p>
 
 **WARNING:** This technique must be executed correctly to retain the original integrity of the class distribution of the original dataset. This process must be peforming during, **not** before the cross validation process. 
@@ -230,7 +230,7 @@ Overall, the model uses isolation rather than any profiling of normal instances 
 
 
 <p align="center">
-  <img width="460" height="400" src="images/iso_viz.png">
+  <img width="560" height="400" src="images/iso_viz.png">
 </p>
 
 
