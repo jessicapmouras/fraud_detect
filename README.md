@@ -148,7 +148,7 @@ As shown here by the ROC Curve below, the models' performance on cross validated
 
 
 <p align="center">
-  <img width="460" height="600" src="images/undersamp_full_viz.png">
+  <img width="460" height="400" src="images/undersamp_full_viz.png">
 </p>
 
 As I am looking to perform a binary classification, my most important metrics to evalute are:
@@ -202,7 +202,7 @@ That is a lot of randoms!
 Why does this work? Well, "new synthetic" instances from the minority class that are generated through this process  are generally speaking close in feature space to existing examples from the minority class.
 
 <p align="center">
-  <img width="460" height="400" src="images/SMOTE_viz.png">
+  <img width="560" height="400" src="images/SMOTE_viz.png">
 </p>
 
 **WARNING:** This technique must be executed correctly to retain the original integrity of the class distribution of the original dataset. This process must be peforming during, **not** before the cross validation process. 
@@ -279,7 +279,7 @@ Let's see if our final method beats this already pretty impressive performance.
 Neural Network Autoencoding works similarly to PCA Anomaly Detection. Neural Networks function a little differently, in the sense that they use non-linear compression methods such as ReLU. NN Autoencoders are typically built on 3 layers, the input layer of the full 30 dimensions, one singular hidden layer that reduces the dimensions, and then an output layer that mirrors the original dimensions.
 
 <p align="center">
-  <img width="460" height="400" src="images/nn-autoencoder-ref.png">
+  <img width="560" height="400" src="images/nn-autoencoder-ref.png">
 </p>
 
 The 30 features were compressed down into 27 features again. For this analysis, I chose a a different reconstruction error threshold than the PCA method, this time I chose 0.0105, meaning that any error above that, the original datapoint is classified into the anomaly class. As a result of this process, we resulted in extremely similar results as the PCA Anomaly Detection.
