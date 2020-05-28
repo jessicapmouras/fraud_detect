@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="1360" height="900" src="images/fraud-header.png">
+  <img width="1000" height="900" src="images/fraud-header.png">
 </p>
 
 Jessica Mouras
@@ -52,7 +52,7 @@ Due to the anonymization process, the feature names, descriptions, and nature is
 To perform my analysis I used the following libaries:
 
 <p align="center">
-  <img width="460" height="200" src="images/keras_regression_logos.png">
+  <img width="600" height="600" src="images/keras_regression_logos.png">
 </p>
 
 
