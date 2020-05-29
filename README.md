@@ -268,7 +268,7 @@ We must use domain knowledge or a fair amount of research to determine what the 
 <p align="center">
   <img width="460" height="400" src="images/pca_cf.png">
 </p>
-To be specific, the method identified 99.9% of the fraudulent transactions, which resulted in exactly 3 False Positives out of 394 Fraud transactions. Still a bit upsetting that we have some rate of False Negatives. These fraudelent transactions could be large in dollar value or especially criminal. I would prefer the business case to be that we have some minimal amounts of False Positives, normal transactions flagged as fraud. This would require some investigation and internal resource time, but would provide more risk coverage for customer exposure.
+To be specific, the method identified 99.9% of the fraudulent transactions. Still a bit upsetting that we have some rate of False Negatives. These fraudelent transactions could be large in dollar value or especially criminal. I would prefer the business case to be that we have some minimal amounts of False Positives, normal transactions flagged as fraud. This would require some investigation and internal resource time, but would provide more risk coverage for customer exposure. We do have a fair amount of False Positives, normal transactions flagged as fraud, but overall, that can be investigated further perhaps with limited resources.
 
 Let's see if our final method beats this already pretty impressive performance.
 
@@ -289,9 +289,9 @@ The 30 features were compressed down into 27 features again. For this analysis, 
 </p>
 Comparing this method to how we assessed the PCA method, this NN method identified 99.9% of the fraudulent transactions, just like the PCA method. 
 
-But, when we examine the specfic results, this time we resulted in exactly 3 False Negatives. This means that out of the 394 Fraud transactions, this method captured all of them during identification and falsely determined that 3 additional instances existed. This time, we reduced the rate of False Negatives.
+But, when we examine the specfic results, this time we resulted more False Positives. This means that although we captured all of the Fraud instances, this method captured all of them during identification and falsely determined normal insances as fraud. This time, we increased the rate of False Positives.
 
-For this analysis, the Neural Network Autoencoder performed best for our business case.
+For this analysis, the PCA Compression and Reconstruction Anomaly Detection method performed best for our business case.
 
 ## Conclusion & Future Application
 <a id="conclude"> </a>
