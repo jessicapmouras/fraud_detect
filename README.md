@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="700" height="300" src="images/fraud-header.png">
+  <img width="800" height="300" src="images/fraud-header.png">
 </p>
 
 Jessica Mouras
@@ -202,17 +202,17 @@ That is a lot of randoms!
 Why does this work? Well, "new synthetic" instances from the minority class that are generated through this process  are generally speaking close in feature space to existing examples from the minority class.
 
 <p align="center">
-  <img width="560" height="400" src="images/SMOTE_viz.png">
+  <img width="650" height="400" src="images/SMOTE_viz.png">
 </p>
 
 **WARNING:** This technique must be executed correctly to retain the original integrity of the class distribution of the original dataset. This process must be peforming during, **not** before the cross validation process. 
 
 <p align="center">
-  <img width="460" height="600" src="images/smote-cross1.png">
+  <img width="460" height="550" src="images/smote-cross1.png">
 </p>
 
 <p align="center">
-  <img width="460" height="600" src="images/smote-cross2.png">
+  <img width="460" height="550" src="images/smote-cross2.png">
 </p>
 
 This is not a very good idea for data with many features. The larger the dimension space, the more complex it is for kNN to collect nearest neighbors. With 30 features, this approach was becoming tedious. I would have a hard time justifying synthetic samples for severely unbalanced classed when there are other machine learning techniques that are better suited to the actual problem at hand - anomaly detection.
@@ -288,6 +288,7 @@ The 30 features were compressed down into 27 features again. For this analysis, 
   <img width="460" height="400" src="images/nn_cf.png">
 </p>
 Comparing this method to how we assessed the PCA method, this NN method identified 99.9% of the fraudulent transactions, just like the PCA method. 
+
 
 But, when we examine the specfic results, it looks like we have captured all of the Fraud instances. Although, again there were 20%+ of falsely determined normal instances identified as fraud. These False Positives occured at about the same rate as the PCA method.
 
