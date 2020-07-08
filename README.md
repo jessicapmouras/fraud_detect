@@ -27,7 +27,7 @@ Jessica Mouras
 
 ## Motivation
 <a id="motive"> </a>
-I started my career in financial services As a CPA (license still current, but inactive) who found the gritter aspects of accounting and finance most intriguing. In fact, my first consulting project ever was an Anti Money Laundering (AML) assignment that deployed Machine Learning techniques, but was 2012 and I was a very junior employee. 
+I started my career in financial services As a CPA (license still current, but inactive) who found the gritter aspects of accounting and finance most intriguing. In fact, my first consulting project ever was an Anti Money Laundering (AML) assignment that deployed Machine Learning techniques, but it was 2012 and I was a very junior employee. 
 
 I wanted to revisit the topic of money laundering by building methods and models to assist with identifying fraudulent transactions.
 
